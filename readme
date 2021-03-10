@@ -1,19 +1,22 @@
 1.
 Para crear la  caprtea target con sus jar
 -   mvn clean package -DskipTests
-2.
-Posicionarse en target y ejecutar
--   java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -Dcucumber.options="classpath:features" org.testng.testNG -testclass com.runner.TestRunner
 
-3.
+2.
 Luego para que funcione, se usa el  siguiente comando (para crear una imagen)
 docker build -t="jormel17/selenium-docker-bdd" .
 
-4.
-docker-compose up    =>Si necesita parametro se le pasa,  en caso de ambos navegadores o uno en especifico
 
--   -   -   -   PARA junit
-java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -Dcucumber.options="classpath:features" org.junit.runner.JUnitCore com.runner.TestRunner
+3.
+Posicionarse en target y ejecutar
+-   java -cp selenium-docker.jar:selenium-docker-tests.jar:libs/* -Dcucumber.options="classpath:features" org.junit.runner.JUnitCore com.runner.TestRunner
+
+
+4.
+docker-compose up    =>Si necesita parametro se le pasa,  en caso de ambos navegadores o uno en especifico ej(chrome)
+
+
+
 
 
 
