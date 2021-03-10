@@ -1,0 +1,20 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:3.14
+  chrome:
+    image: selenium/node-chrome:3.14
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+  bdd:
+    image: jormel17/selenium-docker-bdd
+    depends_on:
+      - chrome
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - CUCUMBER_OPTIONS=classpath:features
+    volumes:
+    - ./ouput:/cucumber-docker/target/cucumber-reports
